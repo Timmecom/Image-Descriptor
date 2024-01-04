@@ -57,9 +57,12 @@ else:
 
         shutil.make_archive(zip_filename_, 'zip', BASE_PATH)
 
-        col3.download_button(
+        download_button = col3.download_button(
             label='Download your Descripted Image',
             data=open(zip_filename, 'rb').read(),
             key="download_button",
             file_name=zip_filename,
             )
+        
+        if download_button:
+            shutil.rmtree(BASE_PATH)
